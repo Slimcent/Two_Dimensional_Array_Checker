@@ -1,16 +1,16 @@
-# This is a sample Python script.
+def is_two_dimensional_array(arr):
+    if isinstance(arr, list) and len(arr) > 0:
+        if all(isinstance(row, list) for row in arr):
+            # Additional check: Ensure that all rows have the same number of columns
+            column_lengths = set(len(row) for row in arr)
+            if len(column_lengths) == 1:
+                return True
+    return False
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+two_dim_array = [[1, 2], [3, 4], [5, 6]]
+one_dim_array = [1, 2, 3]
+not_array = 42
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(is_two_dimensional_array(one_dim_array))
